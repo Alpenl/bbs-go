@@ -1,8 +1,8 @@
 import { createPinia } from 'pinia';
-import useAppStore from './modules/app';
-import useUserStore from './modules/user';
-import useTabBarStore from './modules/tab-bar';
-import useDictStore from './modules/dict';
+import useAppStore from './modules/app/index';
+import useUserStore from './modules/user/index';
+import useTabBarStore from './modules/tab-bar/index';
+import useDictStore from './modules/dict/index';
 
 const pinia = createPinia();
 

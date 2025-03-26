@@ -96,6 +96,9 @@ export default defineConfig({
         },
         javascriptEnabled: true,
       },
+      scss: {
+        additionalData: `@use "sass:math";`,
+      },
     },
   },
 });

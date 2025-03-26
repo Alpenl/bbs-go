@@ -20,5 +20,8 @@
   "stylelint.validate": ["css", "less", "postcss", "scss", "vue", "sass"],
   "cSpell.enabled": false,
   "cSpell.words": ["arcoblue", "axios", "composables", "Gitee", "vueuse"],
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true
 }

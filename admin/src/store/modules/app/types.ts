@@ -4,8 +4,8 @@ import type { MenuItem } from '@/api/user';
 export interface TableConfig {
   size: 'mini' | 'medium' | 'large' | 'small';
   bordered:
-  | boolean
-  | import('@arco-design/web-vue/es/table/interface').TableBorder;
+    | boolean
+    | import('@arco-design/web-vue/es/table/interface').TableBorder;
 }
 
 export interface AppState {
