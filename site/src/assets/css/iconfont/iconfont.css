@@ -1,8 +1,10 @@
+@charset "UTF-8";
+
 @font-face {
   font-family: "iconfont"; /* Project id 1142441 */
-  src: url('iconfont.woff2?t=1727511198798') format('woff2'),
-       url('iconfont.woff?t=1727511198798') format('woff'),
-       url('iconfont.ttf?t=1727511198798') format('truetype');
+  src: url('./iconfont.woff2?t=1727511198798') format('woff2'),
+       url('./iconfont.woff?t=1727511198798') format('woff'),
+       url('./iconfont.ttf?t=1727511198798') format('truetype');
 }
 
 .iconfont {

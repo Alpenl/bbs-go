@@ -1,12 +1,12 @@
-// @charset "UTF-8";
+@charset "UTF-8";
+
 @use "./common";
 @use "./topic";
 @use "./highlightjs";
 @use "./nav";
 @use "./bulma.scss";
-
+@use '@asika32764/vue-animate/dist/vue-animate.css' as *;
 @import "./iconfont/iconfont.css";
-@import '@asika32764/vue-animate/dist/vue-animate.css';
 
 :root {
     --animate-duration: .3s;
