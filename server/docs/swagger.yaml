@@ -1,0 +1,192 @@
+basePath: /api
+definitions:
+  models.JsonResult:
+    properties:
+      code:
+        description: 错误码，0表示成功，非0表示失败
+        example: 0
+        type: integer
+      data:
+        description: 返回数据
+      message:
+        description: 错误信息
+        example: success
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: BBS-Go 论坛系统的 API 文档
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: BBS-Go API
+  version: "1.0"
+paths:
+  /login/signin:
+    post:
+      consumes:
+      - application/json
+      description: 用户通过用户名和密码进行登录
+      parameters:
+      - description: 验证码ID
+        in: formData
+        name: captchaId
+        required: true
+        type: string
+      - description: 验证码
+        in: formData
+        name: captchaCode
+        required: true
+        type: string
+      - default: 1
+        description: 验证码协议版本
+        in: formData
+        name: captchaProtocol
+        type: integer
+      - description: 用户名
+        in: formData
+        name: username
+        required: true
+        type: string
+      - description: 密码
+        in: formData
+        name: password
+        required: true
+        type: string
+      - description: 登录成功后的重定向地址
+        in: formData
+        name: redirect
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 登录成功
+          schema:
+            allOf:
+            - $ref: '#/definitions/models.JsonResult'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: 登录失败
+          schema:
+            allOf:
+            - $ref: '#/definitions/models.JsonResult'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: 用户登录
+      tags:
+      - 用户认证
+  /login/signout:
+    get:
+      consumes:
+      - application/json
+      description: 用户退出登录，清除登录状态
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 退出成功
+          schema:
+            allOf:
+            - $ref: '#/definitions/models.JsonResult'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: 退出失败
+          schema:
+            allOf:
+            - $ref: '#/definitions/models.JsonResult'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: 退出登录
+      tags:
+      - 用户认证
+  /login/signup:
+    post:
+      consumes:
+      - application/json
+      description: 用户通过邮箱、用户名和密码进行注册
+      parameters:
+      - description: 验证码ID
+        in: formData
+        name: captchaId
+        required: true
+        type: string
+      - description: 验证码
+        in: formData
+        name: captchaCode
+        required: true
+        type: string
+      - default: 1
+        description: 验证码协议版本
+        in: formData
+        name: captchaProtocol
+        type: integer
+      - description: 邮箱
+        in: formData
+        name: email
+        required: true
+        type: string
+      - description: 用户名
+        in: formData
+        name: username
+        required: true
+        type: string
+      - description: 密码
+        in: formData
+        name: password
+        required: true
+        type: string
+      - description: 确认密码
+        in: formData
+        name: rePassword
+        required: true
+        type: string
+      - description: 昵称
+        in: formData
+        name: nickname
+        required: true
+        type: string
+      - description: 登录成功后的重定向地址
+        in: formData
+        name: redirect
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 注册成功
+          schema:
+            allOf:
+            - $ref: '#/definitions/models.JsonResult'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: 注册失败
+          schema:
+            allOf:
+            - $ref: '#/definitions/models.JsonResult'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: 用户注册
+      tags:
+      - 用户认证
+swagger: "2.0"

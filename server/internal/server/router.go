@@ -34,6 +34,14 @@ func NewServer() {
 	}))
 	app.AllowMethods(iris.MethodOptions)
 
+	// 添加 Swagger JSON 端点
+	app.Get("/swagger/docs.json", func(ctx iris.Context) {
+		ctx.ServeFile("./docs/swagger.json")
+	})
+
+	// 提供 Swagger UI 页面
+	app.HandleDir("/swagger-ui", "./docs/swagger-ui")
+
 	app.OnAnyErrorCode(func(ctx iris.Context) {
 		path := ctx.Path()
 		var err error
